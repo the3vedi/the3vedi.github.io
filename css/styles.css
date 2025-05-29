@@ -1,7 +1,7 @@
 /* Color palette */
 :root {
-  --bg-color: #1e1e1e;
-  --text-color: #f0f0f0;
+  --bg-color: #000000;
+  --text-color: #ffffff;
   --header-bg: #252525;
   --link-color: #87cefa;
   --link-hover: #a2d5f5;
