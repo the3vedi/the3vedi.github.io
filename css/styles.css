@@ -5,6 +5,7 @@
   --header-bg: #252525;
   --link-color: #87cefa;
   --link-hover: #a2d5f5;
+  --menu-text-color:#D4CFC7;
 }
 
 /* Global styles */
@@ -33,7 +34,7 @@ body {
   gap: 4rem;
 }
 .menu-bar a {
-  color: var(--link-color);
+  color: var(--menu-text-color);
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
