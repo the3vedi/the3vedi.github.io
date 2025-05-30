@@ -11,7 +11,7 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: Consolas,'Courier New', monospace;
+  font-family: 'Montserrat', 'Segoe UI', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
