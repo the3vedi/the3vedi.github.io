@@ -29,8 +29,8 @@ body {
   display: flex;
   justify-content: center;
   background-color: var(--header-bg);
-  padding: 0.30rem 0;
-  gap: 2rem;
+  padding: 0.20rem 0;
+  gap: 4rem;
 }
 .menu-bar a {
   color: var(--link-color);
