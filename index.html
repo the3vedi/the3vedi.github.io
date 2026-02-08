@@ -1,29 +1,60 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Aditya Raghav Trivedi</title> 
+  <title>Aditya's Blog</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" type="image/png" href="images/Favicon.png">
 </head>
-  
+
 <body>
-  
-  <header>
-    <h1 class="site-title">Writings</h1>
-    <nav class="menu-bar">
-      <a href="#">Essays</a>
-      <a href="#">Reviews</a>
-      <a href="#">Excerpts</a>
-      <a href="#">Say Hi!</a>
+  <header class="site-header">
+    <h1 class="site-title">Aditya's Blog</h1>
+    <h2 class="page-title" aria-live="polite"></h2>
+    <nav class="menu-bar" aria-label="Primary">
+      <button class="menu-link" data-section="about">About me</button>
+      <button class="menu-link" data-section="readings">Readings</button>
+      <button class="menu-link" data-section="writings">Writings</button>
     </nav>
   </header>
 
-  <main class="landing">
-    <h2>Welcome</h2>
-    <p>Hi, I am Aditya Raghav Trivedi!</p>
+  <main class="content" id="content" tabindex="-1">
+    <section id="about" class="content-section">
+      <h3>About me</h3>
+      <p>Hi, I am Aditya Raghav Trivedi. This space will host a short bio, what I am exploring, and the themes I write about.</p>
+    </section>
+    <section id="readings" class="content-section">
+      <h3>Readings</h3>
+      <p>A curated list of what I am reading lately—books, essays, and ideas worth revisiting.</p>
+    </section>
+    <section id="writings" class="content-section">
+      <h3>Writings</h3>
+      <p>Notes, essays, and longer reflections. New posts will appear here as they are published.</p>
+    </section>
   </main>
 
+  <script>
+    const menuLinks = document.querySelectorAll('.menu-link');
+    const pageTitle = document.querySelector('.page-title');
+    const contentSections = document.querySelectorAll('.content-section');
+    const content = document.querySelector('#content');
+
+    const activateSection = (sectionId, label) => {
+      document.body.classList.add('is-active');
+      pageTitle.textContent = label;
+
+      contentSections.forEach((section) => {
+        section.classList.toggle('is-visible', section.id === sectionId);
+      });
+
+      content.focus({ preventScroll: true });
+    };
+
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        activateSection(link.dataset.section, link.textContent.trim());
+      });
+    });
+  </script>
 </body>
 </html>
