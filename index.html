@@ -9,7 +9,7 @@
 
 <body>
   <header class="site-header">
-    <button class="site-title" data-action="home" type="button">Aditya's Blog</button>
+    <h1 class="site-title">Aditya's Blog</h1>
     <h2 class="page-title" aria-live="polite"></h2>
     <nav class="menu-bar" aria-label="Primary">
       <button class="menu-link" data-section="about">About me</button>
@@ -35,7 +35,6 @@
 
   <script>
     const menuLinks = document.querySelectorAll('.menu-link');
-    const homeButton = document.querySelector('[data-action="home"]');
     const pageTitle = document.querySelector('.page-title');
     const contentSections = document.querySelectorAll('.content-section');
     const content = document.querySelector('#content');
@@ -51,21 +50,11 @@
       content.focus({ preventScroll: true });
     };
 
-    const resetView = () => {
-      document.body.classList.remove('is-active');
-      pageTitle.textContent = '';
-      contentSections.forEach((section) => {
-        section.classList.remove('is-visible');
-      });
-    };
-
     menuLinks.forEach((link) => {
       link.addEventListener('click', () => {
         activateSection(link.dataset.section, link.textContent.trim());
       });
     });
-
-    homeButton.addEventListener('click', resetView);
   </script>
 </body>
 </html>
