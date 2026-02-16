@@ -58,6 +58,10 @@
                 const postBody = document.getElementById('postBody');
                 postBody.innerHTML = htmlContent;
                 postBody.style.display = 'block';
+                // Render math AFTER HTML is inserted
+            if (window.MathJax) {
+                MathJax.typesetPromise([postBody]).catch((err) => console.log(err));
+            }
                 
             } catch (error) {
                 console.error('Error loading post:', error);
