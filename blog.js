@@ -57,7 +57,7 @@ function renderPosts(grouped) {
             html += `
                 <div class="post-item">
                     <span class="post-date">${day.toString().padStart(2, '0')}</span>
-                    <a href="post.html?slug=${post.slug}" class="post-link">${post.title}</a>
+                    <a href="${post.slug}" class="post-link">${post.title}</a>
                 </div>
             `;
         });
