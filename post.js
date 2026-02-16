@@ -2,7 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const slug = urlParams.get('slug');
 
-// Initialize marked with options
+// Initialize marked
 marked.setOptions({
     breaks: true,
     gfm: true
@@ -33,8 +33,17 @@ async function loadPost(slug) {
         const markdownResponse = await fetch(`posts/${post.file}`);
         const markdownText = await markdownResponse.text();
         
-        // Render post
-        renderPost(post, markdownText);
+        // Update title
+        document.title = post.title;
+        
+        // Convert markdown to HTML
+        const htmlContent = marked.parse(markdownText);
+        
+        // Render
+        document.getElementById('loading').style.display = 'none';
+        const postBody = document.getElementById('postBody');
+        postBody.innerHTML = htmlContent;
+        postBody.style.display = 'block';
         
     } catch (error) {
         console.error('Error loading post:', error);
@@ -42,36 +51,7 @@ async function loadPost(slug) {
     }
 }
 
-function renderPost(post, markdownText) {
-    // Update document title
-    document.title = `${post.title} - The3vedi`;
-    document.getElementById('postTitle').textContent = `${post.title} - The3vedi`;
-    
-    // Update post header
-    document.getElementById('postDate').textContent = formatDate(post.date);
-    document.getElementById('postTitleHeader').textContent = post.title;
-    
-    // Render tags
-    const tagsContainer = document.getElementById('postTags');
-    tagsContainer.innerHTML = post.tags
-        .map(tag => `<span class="tag">${tag}</span>`)
-        .join('');
-    
-    // Convert markdown to HTML
-    const htmlContent = marked.parse(markdownText);
-    document.getElementById('postBody').innerHTML = htmlContent;
-    
-    // Hide loading, show content
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('postContent').style.display = 'block';
-}
-
 function showError() {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('error').style.display = 'block';
-}
-
-function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
 }
