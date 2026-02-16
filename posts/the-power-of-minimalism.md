@@ -57,6 +57,18 @@ Look at companies like Apple, Stripe, or Airbnb. Their designs aren't minimal fo
 
 Minimalism is a tool, not a dogma. Use it when it serves your users.
 
+-------------------------------------------------------------------------
+
+# Testing TeX rendering:  Quantum Mechanics Basics
+
+The Schrödinger equation is:
+
+$$
+i\hbar\frac{\partial}{\partial t}\Psi = \hat{H}\Psi
+$$
+
+Where $\hbar$ is the reduced Planck constant.
+
 ---
 
 *Remember: The goal isn't less. The goal is better.*
