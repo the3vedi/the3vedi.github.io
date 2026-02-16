@@ -67,7 +67,7 @@ $$
 i\hbar\frac{\partial}{\partial t}\Psi = \hat{H}\Psi
 $$
 
-Where $\hbar$ is the reduced Planck constant.
+Where $$\hbar$$ is the reduced Planck constant.
 
 ---
 
